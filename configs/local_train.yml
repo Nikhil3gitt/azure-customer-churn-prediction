@@ -1,0 +1,15 @@
+dataset_path: data/processed/telco_churn.parquet
+target_column: Churn
+test_size: 0.2
+random_state: 42
+model:
+  type: lightgbm
+  params:
+    num_leaves: 64
+    learning_rate: 0.05
+    n_estimators: 400
+    class_weight: balanced
+hyperdrive:
+  max_total_runs: 40
+  primary_metric_name: AUC
+  primary_metric_goal: maximize
